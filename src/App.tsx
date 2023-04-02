@@ -10,12 +10,12 @@
 
 import React from 'react';
 import { Text } from 'react-native';
-import { Login } from './screens';
+import { Login, SignUp } from './screens';
 
 const App = () => {
   console.log('Welcome');
 
-  return <Login />;
+  return <SignUp />;
 };
 
 export default App;

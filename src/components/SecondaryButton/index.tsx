@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, SafeAreaView, Text } from 'react-native';
 import { StyledButton, StyledText } from './styles';
 
 interface ButtonProps {

@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Button } from 'react-native';
 
 export const StyledButton = styled.TouchableOpacity`
   display: flex;
@@ -8,6 +7,7 @@ export const StyledButton = styled.TouchableOpacity`
   align-items: center;
   padding: 17px;
   gap: 10px;
+  margin-bottom: 24px;
 
   width: 80%;
   height: 52px;
