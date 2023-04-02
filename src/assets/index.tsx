@@ -1,5 +1,8 @@
 import Logo from './logo.svg';
 import LogoPNG from './logo-acaso.png';
 import View from './view.svg';
+import Galaxy from './galaxy.png';
+import Elipse from './Ellipse.png';
+import Vector from './Vector.png';
 
-export { Logo, LogoPNG, View };
+export { Logo, LogoPNG, View, Galaxy, Elipse, Vector };
