@@ -6,7 +6,7 @@ import {
   Icon,
   Title,
   InputContainer,
-} from './style';
+} from './styles';
 
 interface InputProps extends TextInputProps {
   placeholder: string;
@@ -14,13 +14,13 @@ interface InputProps extends TextInputProps {
   title: string;
 }
 
-const InputBox: React.FC<InputProps> = ({
+const InputPasswordBox: React.FC<InputProps> = ({
   isPassword,
   placeholder,
   title,
   ...rest
 }) => {
-  const [visiblePasswaord, setVisiblePasswaord] = useState<boolean>(isPassword);
+  const [visiblePasswaord, setVisiblePasswaord] = useState<boolean>(false);
 
   const toggle = useCallback(() => {
     setVisiblePasswaord(!visiblePasswaord);
@@ -31,7 +31,7 @@ const InputBox: React.FC<InputProps> = ({
       <Title>{title}</Title>
       <Input
         placeholder={placeholder}
-        secureTextEntry={visiblePasswaord}
+        secureTextEntry={!visiblePasswaord}
         {...rest}
         placeholderTextOpacity={0.5}
       />
@@ -45,4 +45,4 @@ const InputBox: React.FC<InputProps> = ({
   );
 };
 
-export default InputBox;
+export default InputPasswordBox;

@@ -1,7 +1,12 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { Container, Title, Description, Text, StyledImage } from './styles';
-import { InputBox, PrimaryButton, SeconaryButton } from '../../components';
+import {
+  InputBox,
+  PrimaryButton,
+  SeconaryButton,
+  InputPasswordBox,
+} from '../../components';
 import { Logo, LogoPNG } from '../../assets';
 
 const SignUp: React.FC = () => {
@@ -15,20 +20,15 @@ const SignUp: React.FC = () => {
 
       <Title>Cadastro</Title>
 
-      <Description>E-mail* </Description>
-      <InputBox placeholder="seu@email.com" />
+      <InputBox placeholder="seu@email.com" title="E-mail * " />
 
-      <Description>Primeiro nome* </Description>
-      <InputBox placeholder="Primeiro nome" />
+      <InputBox placeholder="Primeiro nome" title="Primeiro nome * " />
 
-      <Description>Último nome* </Description>
-      <InputBox placeholder="Último nome" />
+      <InputBox placeholder="Último nome" title="Último nome *" />
 
-      <Description>Senha</Description>
-      <InputBox placeholder="********" />
+      <InputPasswordBox placeholder="********" title="Senha *" />
 
-      <Description>Confirme sua senha</Description>
-      <InputBox placeholder="********" />
+      <InputPasswordBox placeholder="********" title="Confirme sua senha *" />
 
       <PrimaryButton title="Criar sua conta em aca.so" />
 

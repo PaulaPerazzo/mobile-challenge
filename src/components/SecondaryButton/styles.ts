@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 export const StyledButton = styled.TouchableOpacity`
   padding: 17px;
   gap: 10px;
-  margin-top: 10px;
   margin-bottom: 20px;
 
   width: 80%;

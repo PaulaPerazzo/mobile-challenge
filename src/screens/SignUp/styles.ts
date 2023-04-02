@@ -29,8 +29,8 @@ export const Description = styled.Text`
   font-size: 16px;
   line-height: 24px;
 
-  margin-right: 60%;
-  margin-bottom: 8px
+  margin-left: -60%;
+  margin-bottom: 8px;
 
   color: #ffffff;
 `;
