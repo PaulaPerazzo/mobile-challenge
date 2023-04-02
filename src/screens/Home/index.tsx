@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {
   Container,
   Title,
@@ -14,7 +15,11 @@ import { PrimaryButton } from '../../components';
 import { Galaxy, Elipse, Vector, Avatar } from '../../assets';
 
 const Home: React.FC = () => {
-  console.log('inside ConfirmEmail screen');
+  const { navigate } = useNavigation<any>();
+
+  const handleLogout = () => {
+    navigate('Login');
+  };
 
   return (
     <Container>
@@ -29,7 +34,7 @@ const Home: React.FC = () => {
         <Title> Carlos </Title>
       </TextView>
       <Description> Ativo há pelo menos x minutos </Description>
-      <PrimaryButton title="Sair de aca.so" />
+      <PrimaryButton title="Sair de aca.so" onPress={handleLogout} />
     </Container>
   );
 };

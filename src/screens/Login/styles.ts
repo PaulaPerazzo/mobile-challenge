@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.ScrollView`
   flex: 1;
   background-color: #030446;
-  align-items: center;
-  justify-content: center;
+
+  padding-top: 100px;
+  padding-bottom: 100px;
 `;
 
 export const Title = styled.Text`
@@ -42,6 +43,7 @@ export const Text = styled.Text`
   line-height: 18px;
 
   text-align: center;
+  margin-bottom: 10px;
 
   color: #ffffff;
 `;

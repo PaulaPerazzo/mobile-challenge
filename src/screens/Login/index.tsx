@@ -1,28 +1,42 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Container, Title, Description, Text, StyledImage } from './styles';
-import { InputBox, PrimaryButton, SeconaryButton } from '../../components';
+import {
+  InputBox,
+  PrimaryButton,
+  SeconaryButton,
+  InputPasswordBox,
+} from '../../components';
 import { Logo, LogoPNG } from '../../assets';
 
 const Login: React.FC = () => {
-  console.log('inside login');
+  const { navigate } = useNavigation<any>();
+
+  const handlePressLogin = () => {
+    navigate('Home');
+  };
+
+  const handlePressSignUp = () => {
+    navigate('SignUp');
+  };
 
   return (
-    <Container>
+    <Container
+      contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}
+    >
       <StyledImage source={LogoPNG} />
 
       <Title>Login</Title>
 
-      <Description>E-mail</Description>
-      <InputBox placeholder="seu@email.com" />
+      <InputBox placeholder="seu@email.com" title="E-mail" />
 
-      <Description>Senha</Description>
-      <InputBox placeholder="********" isPassword />
+      <InputPasswordBox placeholder="********" isPassword title="Senha" />
 
-      <PrimaryButton title="Entrar" />
+      <PrimaryButton title="Entrar" onPress={handlePressLogin} />
 
       <Text> Não possui uma conta em aca.so? </Text>
 
-      <SeconaryButton title="Criar uma conta" />
+      <SeconaryButton title="Criar uma conta" onPress={handlePressSignUp} />
     </Container>
   );
 };

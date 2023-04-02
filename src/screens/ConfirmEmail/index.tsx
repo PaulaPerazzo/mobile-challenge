@@ -1,10 +1,15 @@
 import React from 'react';
-import { Container, Title, Description, Text, StyledImage } from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { Container, Title, Text, StyledImage } from './styles';
 import { InputBox, PrimaryButton, SeconaryButton } from '../../components';
-import { Logo, LogoPNG } from '../../assets';
+import { LogoPNG } from '../../assets';
 
 const ConfirmEmail: React.FC = () => {
-  console.log('inside ConfirmEmail screen');
+  const { navigate } = useNavigation<any>();
+
+  const handleEmail = () => {
+    navigate('Login');
+  };
 
   return (
     <Container>
@@ -14,7 +19,7 @@ const ConfirmEmail: React.FC = () => {
 
       <InputBox placeholder="seu@email.com" title="Código" />
 
-      <PrimaryButton title="Confirmar e-mail" />
+      <PrimaryButton title="Confirmar e-mail" onPress={handleEmail} />
 
       <Text> Não recebeu o código? </Text>
 

@@ -9,13 +9,17 @@
  */
 
 import React from 'react';
-import { Text } from 'react-native';
-import { Login, SignUp, ConfirmEmail, Home } from './screens';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './routes';
 
 const App = () => {
-  console.log('Welcome');
-
-  return <Home />;
+  return (
+    <NavigationContainer>
+      <StatusBar translucent backgroundColor="transparent" />
+      <Routes />
+    </NavigationContainer>
+  );
 };
 
 export default App;
