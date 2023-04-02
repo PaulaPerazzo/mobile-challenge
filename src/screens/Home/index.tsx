@@ -8,9 +8,10 @@ import {
   ImageContainer,
   ElipseImage,
   VectorImage,
+  AvatarImage,
 } from './styles';
 import { PrimaryButton } from '../../components';
-import { Galaxy, Elipse, Vector } from '../../assets';
+import { Galaxy, Elipse, Vector, Avatar } from '../../assets';
 
 const Home: React.FC = () => {
   console.log('inside ConfirmEmail screen');
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
       <ImageContainer>
         <Image source={Galaxy} />
         <ElipseImage source={Elipse} />
+        <AvatarImage source={Avatar} />
         <VectorImage source={Vector} />
       </ImageContainer>
       <TextView>

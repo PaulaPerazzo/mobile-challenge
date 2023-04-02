@@ -4,5 +4,6 @@ import View from './view.svg';
 import Galaxy from './galaxy.png';
 import Elipse from './Ellipse.png';
 import Vector from './Vector.png';
+import Avatar from './avatar.png';
 
-export { Logo, LogoPNG, View, Galaxy, Elipse, Vector };
+export { Logo, LogoPNG, View, Galaxy, Elipse, Vector, Avatar };

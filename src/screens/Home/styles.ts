@@ -4,11 +4,12 @@ export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: #000004;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-bottom: 130px;
 `;
 
 export const Title = styled.Text`
-  font-family: 'Raleway';
+  font-family: 'Raleway-Regular';
   font-style: italic;
   font-weight: 700;
   font-size: 51px;
@@ -30,18 +31,22 @@ export const Description = styled.Text`
   line-height: 24px;
 
   margin-bottom: 52px;
+  margin-top: -160px;
 
   color: #ffffff;
 `;
 
 export const TextView = styled.View`
-  margin-bottom: 70px;
+  margin-bottom: 250px;
+  margin-top: 50px;
 `;
 
 export const ImageContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+
+  margin-bottom: -130px;
 `;
 
 export const ElipseImage = styled.Image`
@@ -51,5 +56,9 @@ export const ElipseImage = styled.Image`
 export const VectorImage = styled.Image`
   position: absolute;
   right: 140px;
-  top: 330px;
+  top: 280px;
+`;
+
+export const AvatarImage = styled.Image`
+  position: absolute;
 `;
