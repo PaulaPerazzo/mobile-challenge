@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 import { Container, Title, Description, Text, StyledImage } from './styles';
 import {
   InputBox,
