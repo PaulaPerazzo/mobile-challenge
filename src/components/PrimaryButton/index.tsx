@@ -4,11 +4,12 @@ import { StyledButton, StyledText } from './styles';
 interface ButtonProps {
   title: string;
   onPress?: () => void | Promise<void>;
+  disabled?: boolean;
 }
 
-const PrimaryButton: React.FC<ButtonProps> = ({ title, onPress }) => {
+const PrimaryButton: React.FC<ButtonProps> = ({ title, onPress, disabled }) => {
   return (
-    <StyledButton onPress={onPress}>
+    <StyledButton onPress={onPress} disabled={disabled}>
       <StyledText>{title}</StyledText>
     </StyledButton>
   );

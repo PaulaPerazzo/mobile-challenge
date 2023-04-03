@@ -61,3 +61,25 @@ export const StyledImage = styled.Image`
   left: 275px;
   bottom: 43px;
 `;
+
+export const InputError = styled.TextInput.attrs({
+  placeholderTextColor: '#fff',
+  placeholderTextOpacity: 0.5,
+})<{ error: boolean }>`
+  width: 80%;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 24px;
+
+  background: #1e1f2f;
+  border-radius: 6px;
+  border: 1px solid ${(props) => (props.error ? '#E93F78' : 'black')};
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+
+  color: #fff;
+`;

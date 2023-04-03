@@ -50,3 +50,17 @@ export const Text = styled.Text`
 export const StyledImage = styled.Image`
   margin-top: 100px;
 `;
+
+export const ErrorText = styled.Text`
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+
+  color: #e93f78;
+
+  margin-top: -6px;
+  margin-bottom: 10px;
+  margin-right: 150px;
+`;

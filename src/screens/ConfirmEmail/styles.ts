@@ -1,10 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.ScrollView`
   flex: 1;
   background-color: #030446;
-  align-items: center;
-  justify-content: space-around;
   padding-bottom: 260px;
 `;
 

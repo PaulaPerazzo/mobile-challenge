@@ -6,6 +6,7 @@ import {
   Title,
   InputContainer,
   StyledImage,
+  InputError,
 } from './styles';
 import { View } from '../../assets';
 
@@ -13,12 +14,14 @@ interface InputProps extends TextInputProps {
   placeholder: string;
   isPassword?: boolean;
   title: string;
+  error?: boolean;
 }
 
 const InputPasswordBox: React.FC<InputProps> = ({
   isPassword,
   placeholder,
   title,
+  error,
   ...rest
 }) => {
   const [visiblePasswaord, setVisiblePasswaord] = useState<boolean>(false);

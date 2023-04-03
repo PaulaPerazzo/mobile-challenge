@@ -18,7 +18,7 @@ const Login: React.FC = () => {
   };
 
   const handlePressSignUp = () => {
-    navigate('SignUp');
+    navigate('ConfirmEmail');
   };
 
   return (

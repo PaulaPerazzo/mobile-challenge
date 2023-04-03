@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import { Alert, ScrollView } from 'react-native';
+import { Alert, ScrollView, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-import { Container, Title, StyledImage } from './styles';
+import { Container, Title, StyledImage, ErrorText } from './styles';
 import {
   InputBox,
   PrimaryButton,
@@ -12,15 +12,11 @@ import {
 } from '../../components';
 import { Logo, LogoPNG } from '../../assets';
 
-interface Props {
-  onChangeEmail: (email: string) => void;
-  onChangeFirstName: (email: string) => void;
-  onChangeLastName: (email: string) => void;
-  onChangePassword: (email: string) => void;
-  onChangeSecondPassword: (email: string) => void;
-}
+type Props = {
+  userEmail: string;
+};
 
-const SignUp: React.FC = () => {
+const SignUp = ({ userEmail }: Props) => {
   const { navigate } = useNavigation<any>();
 
   const [email, setEmail] = useState('');
@@ -28,6 +24,8 @@ const SignUp: React.FC = () => {
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [secondPassword, setSecondPassword] = useState('');
+  const [matchPassword, setMatchPassword] = useState(true);
+  const [error, setError] = useState(false);
 
   const handleEmailChange = (emailText: string) => {
     setEmail(emailText);
@@ -43,10 +41,28 @@ const SignUp: React.FC = () => {
 
   const handlePasswordChange = (passwordText: string) => {
     setPassword(passwordText);
+    setError(false);
+
+    if (passwordText !== secondPassword) {
+      setMatchPassword(false);
+      setError(true);
+    } else {
+      setMatchPassword(true);
+      setError(false);
+    }
   };
 
   const handleSecondPasswordChange = (passwordText: string) => {
     setSecondPassword(passwordText);
+    setError(false);
+
+    if (password !== passwordText) {
+      setMatchPassword(false);
+      setError(true);
+    } else {
+      setMatchPassword(true);
+      setError(false);
+    }
   };
 
   const handleCreateAccount = () => {
@@ -59,7 +75,7 @@ const SignUp: React.FC = () => {
       })
       .then((res) => {
         console.log(res);
-        navigate('ConfirmEmail');
+        navigate('ConfirmEmail', { userEmail: email });
       });
   };
 
@@ -97,17 +113,24 @@ const SignUp: React.FC = () => {
         placeholder="********"
         title="Senha *"
         onChangeText={handlePasswordChange}
+        error={error}
       />
+
+      {!matchPassword && <ErrorText> senhas não coincidem </ErrorText>}
 
       <InputPasswordBox
         placeholder="********"
         title="Confirme sua senha *"
         onChangeText={handleSecondPasswordChange}
+        error={error}
       />
+
+      {!matchPassword && <ErrorText> senhas não coincidem </ErrorText>}
 
       <PrimaryButton
         title="Criar sua conta em aca.so"
         onPress={handleCreateAccount}
+        disabled={!matchPassword}
       />
 
       <SeconaryButton title="Voltar ao login" onPress={handleBack} />
