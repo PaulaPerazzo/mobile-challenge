@@ -13,8 +13,24 @@ import { Logo, LogoPNG } from '../../assets';
 const Login: React.FC = () => {
   const { navigate } = useNavigation<any>();
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (emailText: string) => {
+    setEmail(emailText);
+  };
+
+  const handlePasswordChange = (passwordText: string) => {
+    setPassword(passwordText);
+  };
+
   const handlePressLogin = () => {
-    navigate('Home');
+    axios
+      .post('https://api.staging.aca.so/auth/login', {
+        email,
+        password,
+      })
+      .then(navigate('Home'));
   };
 
   const handlePressSignUp = () => {
@@ -29,9 +45,18 @@ const Login: React.FC = () => {
 
       <Title>Login</Title>
 
-      <InputBox placeholder="seu@email.com" title="E-mail" />
+      <InputBox
+        placeholder="seu@email.com"
+        title="E-mail"
+        onChangeText={handleEmailChange}
+      />
 
-      <InputPasswordBox placeholder="********" isPassword title="Senha" />
+      <InputPasswordBox
+        placeholder="********"
+        isPassword
+        title="Senha"
+        onChangeText={handlePasswordChange}
+      />
 
       <PrimaryButton title="Entrar" onPress={handlePressLogin} />
 
