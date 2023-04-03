@@ -55,3 +55,9 @@ export const InputContainer = styled.View`
   align-items: flex-start;
   margin-right: -90px;
 `;
+
+export const StyledImage = styled.Image`
+  position: absolute;
+  left: 275px;
+  bottom: 43px;
+`;

@@ -16,7 +16,6 @@ export const StyledButton = styled.TouchableOpacity`
   border-radius: 30.5px;
 
   flex: none;
-  order: 2;
   flex-grow: 0;
 `;
 

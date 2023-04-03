@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import { TextInputProps } from 'react-native';
+import { TextInputProps, Image } from 'react-native';
 import {
   Input,
   TogglePasswordVisibilityButton,
-  Icon,
   Title,
   InputContainer,
+  StyledImage,
 } from './styles';
+import { View } from '../../assets';
 
 interface InputProps extends TextInputProps {
   placeholder: string;
@@ -38,7 +39,7 @@ const InputPasswordBox: React.FC<InputProps> = ({
 
       {isPassword && (
         <TogglePasswordVisibilityButton onPress={toggle}>
-          <Icon name={visiblePasswaord ? 'eye' : 'eye-off'} onPress={toggle} />
+          <StyledImage source={View} />
         </TogglePasswordVisibilityButton>
       )}
     </InputContainer>
