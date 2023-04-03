@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import { Container, Title, Text, StyledImage } from './styles';
-import { InputBox, PrimaryButton, SeconaryButton } from '../../components';
+import {
+  InputBox,
+  PrimaryButton,
+  SeconaryButton,
+  TimerButton,
+} from '../../components';
 import { LogoPNG } from '../../assets';
 
 type Props = {
@@ -22,11 +27,16 @@ const ConfirmEmail = ({ route, navigation }) => {
 
   const handleEmail = () => {
     axios.post('https://api.staging.aca.so/auth/confirm-sign-up', {
-      // email: userEmail,
-      email: 'mpperazzosampaio@gmail.com',
+      email: userEmail,
       confirmation_code: token,
     });
     navigate('Login');
+  };
+
+  const handleResendToken = () => {
+    axios.post('https://api.staging.aca.so/auth/resend-confirmation-code', {
+      email: userEmail,
+    });
   };
 
   return (
@@ -47,7 +57,7 @@ const ConfirmEmail = ({ route, navigation }) => {
 
       <Text> Não recebeu o código? </Text>
 
-      <SeconaryButton title="Aguarde x para reeviar" />
+      <TimerButton onPress={handleResendToken} />
     </Container>
   );
 };
