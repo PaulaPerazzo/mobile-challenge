@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Container, Title, Description, Text, StyledImage } from './styles';
 import {
   InputBox,
@@ -10,7 +11,7 @@ import {
 } from '../../components';
 import { Logo, LogoPNG } from '../../assets';
 
-const Login: React.FC = () => {
+const Login = () => {
   const { navigate } = useNavigation<any>();
 
   const [email, setEmail] = useState('');
@@ -24,17 +25,29 @@ const Login: React.FC = () => {
     setPassword(passwordText);
   };
 
-  const handlePressLogin = () => {
-    axios
-      .post('https://api.staging.aca.so/auth/login', {
-        email,
-        password,
-      })
-      .then(navigate('Home'));
+  const handlePressLogin = async () => {
+    try {
+      await axios
+        .post('https://api.staging.aca.so/auth/login', {
+          email,
+          password,
+        })
+        .then((res) => {
+          // const id = res.data.user.id;
+          const token = res.data.token.id_token;
+          AsyncStorage.setItem('token', token);
+          navigate('Home', {
+            token: res.data.token.id_token,
+            id: res.data.user.id,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handlePressSignUp = () => {
-    navigate('ConfirmEmail');
+    navigate('SignUp');
   };
 
   return (
